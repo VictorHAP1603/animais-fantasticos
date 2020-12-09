@@ -1,0 +1,34 @@
+
+.contato {
+
+
+    .mapa {
+        grid-column: 2;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    .dados {
+        grid-column: 3;
+
+
+        li {
+            margin-bottom: 1rem;
+            font-family: Helvetica, sans-serif;
+
+        }
+
+        li::before {
+            content: '';
+            display: inline-block;
+
+            width: 20px;
+            height: 10px;
+
+            margin-right: 10px;
+            background-color: #fb5;
+        }
+    }
+}

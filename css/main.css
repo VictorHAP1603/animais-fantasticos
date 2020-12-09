@@ -15,7 +15,7 @@ ul {
   list-style: none;
 }
 
-body {
+body .grid-container {
   background-color: #faf6e1;
   color: #222;
   -webkit-font-smoothing: antialiased;
@@ -27,6 +27,235 @@ body {
 
 .hamburguer {
   display: none;
+}
+
+.js [data-tab="content"] section {
+  display: none;
+}
+
+.js [data-tab="content"] section.ativo.show-right {
+  display: block;
+  -webkit-animation: showRight .5s forwards;
+          animation: showRight .5s forwards;
+}
+
+.js [data-tab="content"] section.ativo.show-down {
+  display: block;
+  -webkit-animation: showDown .5s forwards;
+          animation: showDown .5s forwards;
+}
+
+@-webkit-keyframes showRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-40px, 0, 0);
+            transform: translate3d(-40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes showRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-40px, 0, 0);
+            transform: translate3d(-40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes showDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -40px, 0);
+            transform: translate3d(0, -40px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes showDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -40px, 0);
+            transform: translate3d(0, -40px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+.js [data-anime="accordion"] dt::after {
+  content: '⤵';
+  float: right;
+}
+
+.js [data-anime="accordion"] dt.ativo::after {
+  content: '⤴';
+  float: right;
+}
+
+.js [data-anime="accordion"] dd {
+  display: none;
+}
+
+.showDD {
+  display: block !important;
+  -webkit-animation: showDD .5s forwards;
+          animation: showDD .5s forwards;
+}
+
+@-webkit-keyframes showDD {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+@keyframes showDD {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+.js [data-anime="scroll"] {
+  opacity: 0;
+  -webkit-transform: translate3d(-30px, 0, 0);
+          transform: translate3d(-30px, 0, 0);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.js [data-anime="scroll"].ativo {
+  opacity: 1;
+  -webkit-transform: translate3d(0px, 0, 0);
+          transform: translate3d(0px, 0, 0);
+}
+
+.modal-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.modal-container .modal {
+  background-color: #fff;
+  padding: 40px;
+  border: 10px solid #fb5;
+  -webkit-box-shadow: 0 0 0 10px white;
+          box-shadow: 0 0 0 10px white;
+  position: relative;
+  min-width: 300px;
+}
+
+.modal-container .modal [data-modal="fechar"] {
+  top: -30px;
+  right: -30px;
+  position: absolute;
+  background-color: #e54;
+  width: 50px;
+  height: 50px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  font-size: 1.2em;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  cursor: pointer;
+}
+
+.modal-container form label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bold;
+}
+
+.modal-container form input {
+  margin: .5rem 0 1rem 0;
+  display: block;
+  padding: .7rem .5rem;
+  width: 100%;
+}
+
+.modal-container form button {
+  width: 100%;
+  padding: .7rem .2rem;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: #e54;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
+.modal-container.ativo {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-animation: modal .3s forwards;
+          animation: modal .3s forwards;
+}
+
+@-webkit-keyframes modal {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .menu {
@@ -234,7 +463,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  body {
+  body .grid-container {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
@@ -322,129 +551,5 @@ body {
   .copy {
     margin-bottom: 0;
   }
-}
-
-.js [data-tab="content"] section {
-  display: none;
-}
-
-.js [data-tab="content"] section.ativo.show-right {
-  display: block;
-  -webkit-animation: showRight .5s forwards;
-          animation: showRight .5s forwards;
-}
-
-.js [data-tab="content"] section.ativo.show-down {
-  display: block;
-  -webkit-animation: showDown .5s forwards;
-          animation: showDown .5s forwards;
-}
-
-@-webkit-keyframes showRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(-40px, 0, 0);
-            transform: translate3d(-40px, 0, 0);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes showRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(-40px, 0, 0);
-            transform: translate3d(-40px, 0, 0);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-  }
-}
-
-@-webkit-keyframes showDown {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -40px, 0);
-            transform: translate3d(0, -40px, 0);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes showDown {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -40px, 0);
-            transform: translate3d(0, -40px, 0);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-  }
-}
-
-.js [data-anime="accordion"] dt::after {
-  content: '⤵';
-  float: right;
-}
-
-.js [data-anime="accordion"] dt.ativo::after {
-  content: '⤴';
-  float: right;
-}
-
-.js [data-anime="accordion"] dd {
-  display: none;
-}
-
-.showDD {
-  display: block !important;
-  -webkit-animation: showDD .5s forwards;
-          animation: showDD .5s forwards;
-}
-
-@-webkit-keyframes showDD {
-  from {
-    opacity: 0;
-    max-height: 0;
-  }
-  to {
-    opacity: 1;
-    max-height: 200px;
-  }
-}
-
-@keyframes showDD {
-  from {
-    opacity: 0;
-    max-height: 0;
-  }
-  to {
-    opacity: 1;
-    max-height: 200px;
-  }
-}
-
-.js [data-anime="scroll"] {
-  opacity: 0;
-  -webkit-transform: translate3d(-30px, 0, 0);
-          transform: translate3d(-30px, 0, 0);
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-.js [data-anime="scroll"].ativo {
-  opacity: 1;
-  -webkit-transform: translate3d(0px, 0, 0);
-          transform: translate3d(0px, 0, 0);
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,42 @@
+
+.faq {
+
+    .faq-lista {
+        grid-column: 2 / 4;
+
+        dt {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: bold;
+
+            margin-top: 2rem;
+            margin-bottom: .5rem;
+            padding: 15px;
+            
+            border-radius: 5px;
+
+            color: #e54;
+            background-color: #fb5;
+
+            cursor: pointer;
+
+
+            &::before {
+                content: '';
+                display: inline-block;
+
+                width: 20px;
+                height: 10px;
+
+                margin-right: 10px;
+                background-color: #e54;
+            }
+        }
+
+        dd {
+            font-family: Helvetica, Arial, sans-serif;
+            margin-bottom: .5rem;
+            margin-left: 45px; 
+        }
+
+    }
+}
