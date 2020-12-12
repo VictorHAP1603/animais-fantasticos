@@ -7,19 +7,34 @@
     .hamburguer {
         display: block;
         position: absolute;
-        right: 30px;
+        left: 30px;
         cursor: pointer;
             div {
                 width: 30px;
                 height: 5px;
 
                 background-color: #faf6ed;
+                transition: .3s;
             }
 
             div + div {
                 margin-top: 4px;
             }
+            
+            [data-mobile="1"].active {
+                transform: rotate(45deg) translateY(5px);
+            }
+
+            [data-mobile="2"].active {
+                display: none;
+            }
+
+            [data-mobile="3"].active {
+                transform: rotate(135deg) translateY(7px);
+            }
     }
+
+
 
     .menu, .grid-section, .copy {
         grid-column: 1;
@@ -49,6 +64,7 @@
             padding: 0;
             
             transition: all .4s;
+            box-shadow: 2px 2px 2px 0 rgba($color: #000000, $alpha: 0.2);
         }   
 
         li {
@@ -60,7 +76,7 @@
         li a {
             display: block;
             width: 100%;
-            padding: 30px 15px;
+            padding: 10px !important;
             margin-right: 0;
             border-top: 1px solid #222;
         }

@@ -19,12 +19,21 @@
     <div class="grid-container">
         <nav class="menu" data-anime="scroll-menu">
             <div class="hamburguer">
-                <div></div>
-                <div></div>
-                <div></div>
+                <div data-mobile="1"></div>
+                <div data-mobile="2"></div>
+                <div data-mobile="3"></div>
             </div>
-            <ul>
+            <ul class="header-menu">
                 <li><a href="#animais">Animais</a></li>
+                <li data-drop="li">
+                    <a>Sobre</a>
+                    <ul class="lista-sobre" data-dropdown>
+                        <li><a href="">A Empresa</a></li>
+                        <li><a href="">Sócios</a></li>
+                        <li><a href="">Investidores</a></li>
+                        <li><a href="">Equipe</a></li>
+                    </ul>
+                </li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contato">Contato</a></li>
                 <li><a href="https://victorhugoportifolio.netlify.app/" target="_blank">Dev →</a></li>
@@ -33,7 +42,7 @@
         </nav>
 
         <section class="grid-section animais" data-anime="scroll" id="animais">
-            <h1 class="titulo">Animais Fantásticos</h1>
+            <h1 class="titulo t-animal">Animais Fantásticos</h1>
 
             <ul class="animais-lista" data-tab="menu">
                 <li><img src="./img/imagem1.jpg"></li>
@@ -232,7 +241,7 @@
         <section class="grid-section contato" data-anime="scroll" id="contato">
             <h1 class="titulo">Contato</h1>
 
-            <div class="mapa">
+            <div class="mapa" data-tooltip aria-label="Endereço próximo ao estacionamento">
                 <img src="./img/mapa.png">
             </div>
 

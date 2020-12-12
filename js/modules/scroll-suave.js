@@ -8,7 +8,7 @@ export default function initScrollSuave() {
         const href = link.getAttribute('href');
     
         const section = document.querySelector(href);
-        const top = section.offsetTop;
+       
     
         section.scrollIntoView({
             behavior: 'smooth',
