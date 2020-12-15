@@ -23,25 +23,6 @@
             letter-spacing: .1em;
     
             position: relative;
-    
-            &::after {
-                content: '';
-                display: block;
-    
-                position: absolute;
-                bottom: 0;
-                left: 0;
-    
-                width: 0%;
-                height: 3px;
-                background-color: #fff;
-    
-                transition: all .4s;
-            }
-    
-            &:hover::after {
-                width: 100%;
-            }
         }
     }
 

@@ -6,7 +6,7 @@ import initScrollSuave from './modules/scroll-suave.js'
 import initModal from './modules/modal.js'
 import initToolTip from './modules/tooltip.js';
 import initDropDown from './modules/dropdown.js';
-
+import initAnimaNumeros from './modules/anima-numeros.js'
 
 initScrollWindow();
 initShowMenu();
@@ -17,3 +17,4 @@ initScrollSuave();
 initModal();
 initToolTip();
 initDropDown();
+initAnimaNumeros();

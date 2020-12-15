@@ -9,9 +9,17 @@ export function initShowMenu() {
         const menus = menuHamb.querySelectorAll('div');
         
         menu.classList.toggle('menu-open')
-        
         menus.forEach((div) => {
             div.classList.toggle('active')
+        });
+
+        
+        outSideEvent(menu, ['click', 'touchstart'], () => {
+            menu.classList.remove('menu-open')
+
+            menus.forEach((div) => {
+                div.classList.remove('active')
+            })
         });
     };
 

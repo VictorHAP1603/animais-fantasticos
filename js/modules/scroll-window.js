@@ -14,7 +14,7 @@ export default function initScrollWindow() {
                 
                 if (isSectionVisible) {
                     item.classList.add('ativo')
-                } else {
+                } else if (item.classList.contains('ativo')){
                     item.classList.remove('ativo')
                 }
             });    
