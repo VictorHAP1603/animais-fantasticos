@@ -621,6 +621,21 @@ body .grid-container {
   background-color: #fb5;
 }
 
+.contato .dados li.aberto::before {
+  background-color: green;
+}
+
+.contato .dados li.closed::before {
+  background-color: red;
+}
+
+.contato .dados .btc-preco {
+  background-color: green;
+  padding: .2rem .5rem;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
 .copy {
   -ms-grid-column: 3;
   -ms-grid-column-span: 2;

@@ -30,5 +30,20 @@
             margin-right: 10px;
             background-color: #fb5;
         }
+
+        li.aberto::before {
+            background-color: green;
+        }
+
+        li.closed::before {
+            background-color: red;
+        }
+
+        .btc-preco {
+            background-color: green;
+            padding: .2rem .5rem ;
+            font-weight: bold;
+            border-radius: 2px;
+        }
     }
 }
