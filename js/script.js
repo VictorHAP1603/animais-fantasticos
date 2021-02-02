@@ -13,11 +13,11 @@ import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 const scrollsuave = new ScrollSuave("[data-menu]");
 scrollsuave.init();
 
+initAccordion();
 initScrollWindow();
 initShowMenu();
 initRemoveMenu();
 initTabNav();
-initAccordion();
 initModal();
 initToolTip();
 initDropDown();
