@@ -1,50 +1,42 @@
-import outSideEvent from './outsideClick.js'
-
+import outSideEvent from "./outsideClick.js";
 
 export function initShowMenu() {
-    const menuHamb = document.querySelector('.hamburguer')
+  const menuHamb = document.querySelector(".hamburguer");
 
-    function showMenu() {
-        const menu = document.querySelector('.menu ul');    
-        const menus = menuHamb.querySelectorAll('div');
-        
-        menu.classList.toggle('menu-open')
-        menus.forEach((div) => {
-            div.classList.toggle('active')
-        });
+  function showMenu() {
+    const menu = document.querySelector(".menu ul");
+    const menus = menuHamb.querySelectorAll("div");
 
-        
-        outSideEvent(menu, ['click', 'touchstart'], () => {
-            menu.classList.remove('menu-open')
+    menu.classList.toggle("menu-open");
+    menus.forEach((div) => {
+      div.classList.toggle("active");
+    });
 
-            menus.forEach((div) => {
-                div.classList.remove('active')
-            })
-        });
-    };
+    outSideEvent(menu, ["click", "touchstart"], () => {
+      menu.classList.remove("menu-open");
 
-    menuHamb.addEventListener('click', showMenu)
+      menus.forEach((div) => {
+        div.classList.remove("active");
+      });
+    });
+  }
+
+  menuHamb.addEventListener("click", showMenu);
 }
-
-
 
 export function initRemoveMenu() {
-    function removeMenu() {
-        const menuHamb = document.querySelector('.hamburguer')
-        const menu = document.querySelector('.menu ul')    
-        const menus = menuHamb.querySelectorAll('div')
-        
-        menus.forEach((div) => {
-            div.classList.remove('active')
-        })
+  function removeMenu() {
+    const menuHamb = document.querySelector(".hamburguer");
+    const menu = document.querySelector(".menu ul");
+    const menus = menuHamb.querySelectorAll("div");
 
-        if ( window.pageYOffset > menu.offsetTop ) {
-            menu.classList.remove('menu-open')
-        }
+    menus.forEach((div) => {
+      div.classList.remove("active");
+    });
+
+    if (window.pageYOffset > menu.offsetTop) {
+      menu.classList.remove("menu-open");
     }
-    document.addEventListener('scroll', removeMenu)
+  }
+  document.addEventListener("scroll", removeMenu);
 }
-
-
-    
-
