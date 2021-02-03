@@ -21,5 +21,7 @@ export default class Accordion {
     if (this.accordion.length) {
       this.addAccordionEvent();
     }
+
+    return this;
   }
 }
