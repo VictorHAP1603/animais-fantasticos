@@ -1,9 +1,9 @@
 import ScrollSuave from "./modules/scroll-suave.js";
 import Accordion from "./modules/accordion-list.js";
 import TabNav from "./modules/tab-nav.js";
+import Modal from "./modules/modal.js";
 import initScrollWindow from "./modules/scroll-window.js";
 import { initShowMenu, initRemoveMenu } from "./modules/menu-mobile.js";
-import initModal from "./modules/modal.js";
 import initToolTip from "./modules/tooltip.js";
 import initDropDown from "./modules/dropdown.js";
 import initDate from "./modules/date.js";
@@ -22,10 +22,16 @@ const tabnav = new TabNav(
 );
 tabnav.init();
 
+const modal = new Modal(
+  '[data-modal="abrir"]',
+  '[data-modal="fechar"]',
+  '[data-modal="container"]'
+);
+modal.init();
+
 initScrollWindow();
 initShowMenu();
 initRemoveMenu();
-initModal();
 initToolTip();
 initDropDown();
 initDate();
