@@ -1,30 +1,40 @@
 export default class ScrollAnima {
   constructor(sections) {
-    this.sections = document.querySelectorAll(sections);
+    this.sections = [...document.querySelectorAll(sections)];
     this.windowMetade = window.innerHeight * 0.6;
 
-    this.addAnimateScroll = this.addAnimateScroll.bind(this);
+    this.checkDistance = this.checkDistance.bind(this);
   }
 
-  AnimateScroll(item) {
-    const sectionTop = item.getBoundingClientRect().top;
-    const isSectionVisible = sectionTop - this.windowMetade < 0;
-
-    if (isSectionVisible) {
-      item.classList.add("ativo");
-    } else if (item.classList.contains("ativo")) {
-      item.classList.remove("ativo");
-    }
+  // verifica a distancia de cada objeto em
+  // relação a posição do scroll do site
+  getDistances() {
+    this.distance = this.sections.map((section) => {
+      const sectionTop = section.offsetTop;
+      return {
+        section,
+        sectionTop: Math.floor(sectionTop - this.windowMetade),
+      };
+    });
   }
 
-  addAnimateScroll() {
-    this.sections.forEach((item) => this.AnimateScroll(item));
+  // adiciona a respectiva classe ao elemento
+  // que chegar na distancia do scroll top
+  checkDistance() {
+    this.distance.forEach((section) => {
+      if (window.pageYOffset > section.sectionTop) {
+        section.section.classList.add("ativo");
+      } else if (section.section.classList.contains("ativo")) {
+        section.section.classList.remove("ativo");
+      }
+    });
   }
 
   // adiciona os eventos ao respectivos elementos
   addEventScrollWindow() {
-    this.addAnimateScroll();
-    window.addEventListener("scroll", this.addAnimateScroll);
+    this.getDistances();
+    this.checkDistance();
+    window.addEventListener("scroll", this.checkDistance);
   }
 
   // verifica se há algum 'this.sections', se houver aciona a função

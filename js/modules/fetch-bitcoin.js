@@ -5,7 +5,6 @@ export default function initFetchBitcoin(url) {
     // com o await e .json() fora dos parenteses
     const responseBitcoin = await (await fetch(url)).json();
     const btcPreco = document.querySelector(".btc-preco");
-    console.log(responseBitcoin.BRL.sell);
     const btcBRL = (1000 / responseBitcoin.BRL.sell).toFixed(4);
 
     btcPreco.innerHTML = btcBRL;
