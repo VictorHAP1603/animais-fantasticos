@@ -4,7 +4,7 @@ import TabNav from "./modules/tab-nav.js";
 import Modal from "./modules/modal.js";
 import ToolTip from "./modules/tooltip.js";
 import initFetchAnimais from "./modules/fetch-animais.js";
-import initScrollWindow from "./modules/scroll-window.js";
+import ScrollAnima from "./modules/scroll-anima.js";
 import { initShowMenu, initRemoveMenu } from "./modules/menu-mobile.js";
 import initDropDown from "./modules/dropdown.js";
 import initDate from "./modules/date.js";
@@ -32,11 +32,13 @@ modal.init();
 const toolTip = new ToolTip("[data-tooltip]");
 toolTip.init();
 
-initFetchAnimais("../../animaisapi.json", ".numeros-grid");
+const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
+scrollAnima.init();
 
-initScrollWindow();
+initFetchAnimais("../../animaisapi.json", ".numeros-grid");
+initFetchBitcoin("https://blockchain.info/ticker");
+
 initShowMenu();
 initRemoveMenu();
 initDropDown();
 initDate();
-initFetchBitcoin();
