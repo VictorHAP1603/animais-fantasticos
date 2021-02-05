@@ -38,7 +38,7 @@ scrollAnima.init();
 const dropDown = new DropDown("[data-drop]");
 dropDown.init();
 
-initFetchAnimais("../../animaisapi.json", ".numeros-grid");
+initFetchAnimais("./animaisapi.json", ".numeros-grid");
 initFetchBitcoin("https://blockchain.info/ticker");
 
 const menuMobile = new Menu(".hamburguer", ".menu ul", "[data-mobile]");
