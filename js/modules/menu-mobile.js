@@ -1,42 +1,42 @@
 import outSideEvent from "./outsideClick.js";
 
-export function initShowMenu() {
-  const menuHamb = document.querySelector(".hamburguer");
+export default class Menu {
+  constructor(menuHamburguer, menuLista, menuItens) {
+    this.menuHamburguer = document.querySelector(menuHamburguer);
+    this.menuLista = document.querySelector(menuLista);
+    this.menuItens = document.querySelectorAll(menuItens);
 
-  function showMenu() {
-    const menu = document.querySelector(".menu ul");
-    const menus = menuHamb.querySelectorAll("div");
+    this.show = this.show.bind(this);
+    this.removeOnScroll = this.removeOnScroll.bind(this);
+  }
 
-    menu.classList.toggle("menu-open");
-    menus.forEach((div) => {
-      div.classList.toggle("active");
-    });
+  show() {
+    this.menuLista.classList.toggle("menu-open");
+    this.menuItens.forEach((div) => div.classList.toggle("active"));
 
-    outSideEvent(menu, ["click", "touchstart"], () => {
-      menu.classList.remove("menu-open");
-
-      menus.forEach((div) => {
+    outSideEvent(this.menuLista, ["click", "touchstart"], () => {
+      this.menuLista.classList.remove("menu-open");
+      this.menuItens.forEach((div) => {
         div.classList.remove("active");
       });
     });
   }
 
-  menuHamb.addEventListener("click", showMenu);
-}
+  removeOnScroll() {
+    this.menuItens.forEach((menuIten) => menuIten.classList.remove("active"));
 
-export function initRemoveMenu() {
-  function removeMenu() {
-    const menuHamb = document.querySelector(".hamburguer");
-    const menu = document.querySelector(".menu ul");
-    const menus = menuHamb.querySelectorAll("div");
-
-    menus.forEach((div) => {
-      div.classList.remove("active");
-    });
-
-    if (window.pageYOffset > menu.offsetTop) {
-      menu.classList.remove("menu-open");
+    if (window.pageYOffset > this.menuLista.offsetTop) {
+      this.menuLista.classList.remove("menu-open");
     }
   }
-  document.addEventListener("scroll", removeMenu);
+
+  addEventsMenu() {
+    this.menuHamburguer.addEventListener("click", this.show);
+    window.addEventListener("scroll", this.removeOnScroll);
+  }
+
+  init() {
+    if (this.menuHamburguer && this.menuLista) this.addEventsMenu();
+    return this;
+  }
 }

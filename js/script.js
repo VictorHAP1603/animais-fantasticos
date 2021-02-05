@@ -6,7 +6,7 @@ import ToolTip from "./modules/tooltip.js";
 import initFetchAnimais from "./modules/fetch-animais.js";
 import ScrollAnima from "./modules/scroll-anima.js";
 import DropDown from "./modules/dropdown.js";
-import { initShowMenu, initRemoveMenu } from "./modules/menu-mobile.js";
+import Menu from "./modules/menu-mobile.js";
 import initDate from "./modules/date.js";
 import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 
@@ -35,12 +35,13 @@ toolTip.init();
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
 scrollAnima.init();
 
-initFetchAnimais("../../animaisapi.json", ".numeros-grid");
-initFetchBitcoin("https://blockchain.info/ticker");
-
 const dropDown = new DropDown("[data-drop]");
 dropDown.init();
 
-initShowMenu();
-initRemoveMenu();
+initFetchAnimais("../../animaisapi.json", ".numeros-grid");
+initFetchBitcoin("https://blockchain.info/ticker");
+
+const menuMobile = new Menu(".hamburguer", ".menu ul", "[data-mobile]");
+menuMobile.init();
+
 initDate();
