@@ -5,8 +5,8 @@ import Modal from "./modules/modal.js";
 import ToolTip from "./modules/tooltip.js";
 import initFetchAnimais from "./modules/fetch-animais.js";
 import ScrollAnima from "./modules/scroll-anima.js";
+import DropDown from "./modules/dropdown.js";
 import { initShowMenu, initRemoveMenu } from "./modules/menu-mobile.js";
-import initDropDown from "./modules/dropdown.js";
 import initDate from "./modules/date.js";
 import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 
@@ -38,7 +38,9 @@ scrollAnima.init();
 initFetchAnimais("../../animaisapi.json", ".numeros-grid");
 initFetchBitcoin("https://blockchain.info/ticker");
 
+const dropDown = new DropDown("[data-drop]");
+dropDown.init();
+
 initShowMenu();
 initRemoveMenu();
-initDropDown();
 initDate();
