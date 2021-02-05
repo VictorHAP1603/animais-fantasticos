@@ -1,24 +1,48 @@
-export default function initDate() {
-  const funcionamento = document.querySelector("[data-semana]");
-  const diasSemana = funcionamento.dataset.semana.split(",").map(Number);
-  const horSema = funcionamento.dataset.horario.split(",").map(Number);
+export default class Funcionamento {
+  constructor(funcionamento) {
+    this.funcionamento = document.querySelector(funcionamento);
+  }
 
-  const dataAgora = new Date();
-  const diaAgora = dataAgora.getDay();
-  const horarioAgora = dataAgora.getHours();
+  dadosFuncionamento() {
+    this.diasSemana = this.funcionamento.dataset.semana.split(",").map(Number);
+    this.horSema = this.funcionamento.dataset.horario.split(",").map(Number);
+  }
 
-  const horarioAberto = horarioAgora >= horSema[0] && horarioAgora < horSema[1];
+  dadosAgora() {
+    this.dataAgora = new Date();
+    this.diaAgora = this.dataAgora.getDay();
+    this.horarioAgora = this.dataAgora.getUTCHours() - 3;
+  }
 
-  const semanaAberta = diasSemana.indexOf(diaAgora) !== -1;
+  estaAbero() {
+    const horarioAberto =
+      this.horarioAgora >= this.horSema[0] &&
+      this.horarioAgora < this.horSema[1];
+    const semanaAberta = this.diasSemana.indexOf(this.diaAgora) !== -1;
 
-  if (semanaAberta && horarioAberto) {
-    funcionamento.classList.add("aberto");
-  } else {
-    funcionamento.classList.remove("aberto");
-    funcionamento.classList.add("closed");
+    return semanaAberta && horarioAberto;
+  }
+
+  ativaAberto() {
+    if (this.estaAbero()) {
+      this.funcionamento.classList.remove("closed");
+      this.funcionamento.classList.add("aberto");
+    } else {
+      this.funcionamento.classList.remove("aberto");
+      this.funcionamento.classList.add("closed");
+    }
+  }
+
+  init() {
+    if (this.funcionamento) {
+      this.dadosFuncionamento();
+      this.dadosAgora();
+      this.ativaAberto();
+    }
+    return this;
   }
 }
 
 // function converterDias() {
-//     return time / (24 * 60 * 60 * 1000) // transforma milisegundos em dias
-// }
+//     return time / (24 * 60 * 60 * 1000) // transforma milisegundos em dias ///
+//

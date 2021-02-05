@@ -3,11 +3,11 @@ import Accordion from "./modules/accordion-list.js";
 import TabNav from "./modules/tab-nav.js";
 import Modal from "./modules/modal.js";
 import ToolTip from "./modules/tooltip.js";
-import initFetchAnimais from "./modules/fetch-animais.js";
 import ScrollAnima from "./modules/scroll-anima.js";
 import DropDown from "./modules/dropdown.js";
 import Menu from "./modules/menu-mobile.js";
-import initDate from "./modules/date.js";
+import Funcionamento from "./modules/date.js";
+import initFetchAnimais from "./modules/fetch-animais.js";
 import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 
 const scrollsuave = new ScrollSuave("[data-menu]");
@@ -38,10 +38,11 @@ scrollAnima.init();
 const dropDown = new DropDown("[data-drop]");
 dropDown.init();
 
-initFetchAnimais("../../animaisapi.json", ".numeros-grid");
+initFetchAnimais("./animaisapi.json", ".numeros-grid");
 initFetchBitcoin("https://blockchain.info/ticker");
 
 const menuMobile = new Menu(".hamburguer", ".menu ul", "[data-mobile]");
 menuMobile.init();
 
-initDate();
+const funcionamento = new Funcionamento("[data-semana]");
+funcionamento.init();
