@@ -1,11 +1,12 @@
 export default function outSideClick(element, events, callback) {
   const html = document.documentElement;
   const outside = "data-outside";
-
   function handleOusideClick(event) {
     if (!element.contains(event.target)) {
       events.forEach((userEvent) => {
-        setTimeout(() => html.removeEventListener(userEvent, handleOusideClick));
+        setTimeout(() =>
+          html.removeEventListener(userEvent, handleOusideClick)
+        );
       });
 
       callback();
