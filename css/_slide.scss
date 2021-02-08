@@ -1,0 +1,131 @@
+
+.custom-control {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / 4;
+
+  }
+  
+  .control-list {
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  
+  .control-list li {
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .control-list li img {
+    object-fit: cover;
+    border-radius: 50%;
+    opacity: 0.8;
+    transform: scale(0.8);
+    transition: all 0.3s;
+  }
+  
+  .control-list li.active img {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  }
+  
+  .wrapper {
+    overflow: hidden;
+    grid-column: 1 / 5;
+
+  }
+  
+  .slide {
+    display: flex;
+  }
+  
+  .slide:hover {
+    will-change: transform;
+  }
+  
+  .slide li {
+    flex-shrink: 0;
+    width: 80vw;
+    max-width: 800px;
+    margin: 0 20px;
+  
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  
+    opacity: 0.8;
+    transform: scale(0.8);
+    transition: 0.3s;
+  }
+  
+  .slide.transform {
+    transform: translate3d(0px, 0px, 0px);
+  }
+  
+  .slide li.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .slide li img {
+    height: 400px;
+    width: 100%;
+  }
+  
+  .controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .controls div {
+    background-color: #fb5;
+    color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    background-image: url("../img/arrow.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+  
+    transition: all 0.3s;
+  }
+  
+  .prev {
+    transform: rotate(-180deg);
+  }
+  
+  .controls div:hover {
+    background-color: #e54;
+  }
+  
+  [data-control="slide"] {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  [data-control="slide"] li a {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fb5;
+    overflow: hidden;
+    text-indent: -999px;
+    transition: all 0.3s;
+    margin: 5px;
+  }
+  
+  [data-control="slide"] li.active a,
+  [data-control="slide"] li a:hover {
+    background-color: #e54;
+  }
+  

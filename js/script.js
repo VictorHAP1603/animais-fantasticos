@@ -7,6 +7,7 @@ import ScrollAnima from "./modules/scroll-anima.js";
 import DropDown from "./modules/dropdown.js";
 import Menu from "./modules/menu-mobile.js";
 import Funcionamento from "./modules/date.js";
+import SlideNav from "./modules/slide.js";
 import initFetchAnimais from "./modules/fetch-animais.js";
 import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 
@@ -38,11 +39,15 @@ scrollAnima.init();
 const dropDown = new DropDown("[data-drop]");
 dropDown.init();
 
-initFetchAnimais("./animaisapi.json", ".numeros-grid");
-initFetchBitcoin("https://blockchain.info/ticker");
-
 const menuMobile = new Menu(".hamburguer", ".menu ul", "[data-mobile]");
 menuMobile.init();
 
 const funcionamento = new Funcionamento("[data-semana]");
 funcionamento.init();
+
+const slide = new SlideNav(".wrapper", ".slide");
+slide.init();
+slide.addControl(".control-list");
+
+initFetchAnimais("./animaisapi.json", ".numeros-grid");
+initFetchBitcoin("https://blockchain.info/ticker");
