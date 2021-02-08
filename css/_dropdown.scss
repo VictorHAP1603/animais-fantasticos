@@ -91,7 +91,7 @@
         }
     
         
-        [data-drop].active ul {
+        [data-drop] ul {
             display: flex !important;
             animation: showRight .4s forwards;
         }

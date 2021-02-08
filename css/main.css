@@ -176,8 +176,8 @@ body .grid-container {
 }
 
 .control-list li {
-  height: 70px;
-  width: 70px;
+  height: 40px;
+  width: 35px;
   margin: 5px;
   cursor: pointer;
 }
@@ -521,7 +521,7 @@ body .grid-container {
     content: '';
     display: none;
   }
-  .menu [data-drop].active ul {
+  .menu [data-drop] ul {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;

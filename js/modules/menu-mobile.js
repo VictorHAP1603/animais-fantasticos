@@ -10,11 +10,12 @@ export default class Menu {
     this.removeOnScroll = this.removeOnScroll.bind(this);
   }
 
-  show() {
+  show(event) {
+    event.preventDefault();
     this.menuLista.classList.toggle("menu-open");
     this.menuItens.forEach((div) => div.classList.toggle("active"));
 
-    outSideEvent(this.menuLista, ["click", "touchstart"], () => {
+    outSideEvent(this.menuLista, ["click"], () => {
       this.menuLista.classList.remove("menu-open");
       this.menuItens.forEach((div) => {
         div.classList.remove("active");
